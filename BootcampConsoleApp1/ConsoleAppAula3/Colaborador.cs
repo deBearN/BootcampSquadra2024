@@ -2,7 +2,7 @@
 {
     public class Colaborador
     {
-        public Colaborador(string nome, string cargo)
+        public Colaborador(string nome, Cargo cargo)
         {
             Id = Guid.NewGuid(); //UniqueIdentifier 
             Matricula = new Random().Next(1000, 9999); //123154
@@ -17,7 +17,7 @@
         public decimal SalarioAtualizado { get; set; }
         public int Matricula { get; set; }
         public decimal Taxa { get; set; } = 0.5m;
-        public string Cargo { get; set; }
+        public Cargo Cargo { get; set; }
         public DateTime DataAdmissao { get; set; }
 
         public void AumentarSalario(decimal valor)
@@ -27,7 +27,7 @@
 
         public string ExibirDados()
         {
-            return $"{Id} \nO {Cargo} {Nome} " +
+            return $"{Id} \nO {Cargo.NomeCargo} {Nome} " +
                    $"\nMatricula: {Matricula}" +
                    $"\ncom o Salario base {Salario}" +
                    $"\nSalario deduzido {SalarioAtualizado}";
