@@ -1,7 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿//See https://aka.ms/new-console-template for more information
 using ConsoleAppAula4;
 
-Carro carro = new Carro() 
+Carro carro = new Carro()
 {
     Marca = "Nissan",
     Modelo = "Frontier",
