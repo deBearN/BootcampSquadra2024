@@ -1,0 +1,6 @@
+@PrimeiraApiAula6_HostAddress = http://localhost:5218
+
+GET {{PrimeiraApiAula6_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
