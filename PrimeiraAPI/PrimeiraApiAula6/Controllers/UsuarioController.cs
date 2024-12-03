@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PrimeiraApiAula6.Models;
 using PrimeiraApiAula6.Services;
 
@@ -19,6 +20,7 @@ namespace PrimeiraApiAula6.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin, Funcionario")]
         public List<Usuario> Post([FromBody] UsuarioRequest request)
         {
             var usuariosCadastrados = usuariosService.Cadastrar(request.Nome, request.Email);
@@ -27,15 +29,18 @@ namespace PrimeiraApiAula6.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public List<Usuario> Delete([FromRoute] int id)
         {
+
             usuariosService.Remover(id);
 
             return usuariosService.ObterTodos();
         }
 
         [HttpPut("{id}")]
-        public List<Usuario> Atualizar(UsuarioRequest request, [FromRoute] int id) 
+        [Authorize]
+        public List<Usuario> Atualizar(UsuarioRequest request, [FromRoute] int id)
         {
             usuariosService.Atualizar(id, request.Nome, request.Email);
 
