@@ -25,13 +25,18 @@ namespace PrimeiraApiAula6.Services
             return Usuarios;
         }
 
-        public List<Usuario> Cadastrar(string nome, string email)
+        public List<Usuario> Cadastrar(UsuarioRequest request)
         {
+            var funcaoId = request.FuncaoId;
+
+            //enriquecer o objeto de funcao, buscando a funcao por id
+
             Usuario usuario = new Usuario()
             {
                 Id = Usuarios.Count() + 1,
-                Nome = nome,
-                Email = email
+                Nome = request.Nome,
+                Email = request.Email,
+                //Funcao = objFuncao
             };
 
             Usuarios.Add(usuario);

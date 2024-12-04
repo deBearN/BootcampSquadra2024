@@ -23,7 +23,7 @@ namespace PrimeiraApiAula6.Controllers
         [Authorize(Roles = "Admin, Funcionario")]
         public List<Usuario> Post([FromBody] UsuarioRequest request)
         {
-            var usuariosCadastrados = usuariosService.Cadastrar(request.Nome, request.Email);
+            var usuariosCadastrados = usuariosService.Cadastrar(request);
 
             return usuariosCadastrados;
         }
