@@ -35,7 +35,6 @@ namespace ApiCRUD.Controllers
         [HttpPost] //Create
         public ActionResult<Usuario> CreateUsuario([FromBody] UsuarioRequest request)
         {
-
             var usuario = new Usuario()
             {
                 Nome = request.Nome,
